@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
@@ -103,4 +103,35 @@ df[['Age', 'Fare', 'Survived']].hist(figsize=(10, 8), bins=20)
 plt.tight_layout()
 fig3.savefig("grafico_histogramas_age_fare_survived.png")
 plt.close()
+
+# 3.6 Armazenamento numa Base de Dados
+
+# Conectar a um banco SQLite
+conn = sqlite3.connect("titanic_data.db")
+cursor = conn.cursor()
+
+# Criar tabela no SQLite
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS Titanic (
+    PassengerId INTEGER PRIMARY KEY,
+    Pclass INTEGER,
+    Name TEXT,
+    Sex TEXT,
+    Age REAL,
+    SibSp INTEGER,
+    Parch INTEGER,
+    Ticket TEXT,
+    Fare REAL,
+    Embarked TEXT,
+    Survived INTEGER,
+    Idade_Milissegundos INTEGER
+)
+""")
+
+# Inserir os dados na DB
+df.to_sql("Titanic", conn, if_exists="replace", index=False)
+print("\nDados armazenados na base de dados 'titanic_data.db'")
+
+# Fechar conexão
+conn.close()
 
