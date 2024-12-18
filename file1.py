@@ -106,7 +106,7 @@ plt.close()
 
 # 3.6 Armazenamento numa Base de Dados
 
-# Conectar a um banco SQLite
+# Conectar ao SQLite
 conn = sqlite3.connect("titanic_data.db")
 cursor = conn.cursor()
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS Titanic (
 
 # Inserir os dados na DB
 df.to_sql("Titanic", conn, if_exists="replace", index=False)
-print("\nDados armazenados na base de dados 'titanic_data.db'")
+print("\nDados armazenados na base de dados 'titanic_db.db'")
 
 # Fechar conexão
 conn.close()
