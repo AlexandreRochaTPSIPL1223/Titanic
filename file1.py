@@ -56,7 +56,7 @@ print("\n#######################################################################
 
 #Distribuição de sobreviventes por classe e sexo (Gráfico de barras)
 plt.figure(figsize = (8,6))
-sns.countplot(data=df, x='Pclass', hue='Sex', palette='rocket')
+grafico1 = sns.countplot(data=df, x='Pclass', hue='Sex', palette='rocket')
 plt.title("Distribuição de Sobreviventes por Classe e Sexo")
 plt.xlabel("Classe")
 plt.ylabel("Número de Passageiros")
@@ -66,7 +66,7 @@ plt.show()
 
 #Correlação entre Age, Fare e Survived(Gráfico de dispersão (scatter plots))
 plt.figure(figsize = (8,6))
-sns.scatterplot(data=df, x='Age', y='Fare', hue='Survived', palette='coolwarm')
+grafico2 = sns.scatterplot(data=df, x='Age', y='Fare', hue='Survived', palette='coolwarm')
 plt.title("Correlação entre Idade, Tarifa e Sobrevivência")
 plt.xlabel("Idade")
 plt.ylabel("Tarifa")
@@ -75,10 +75,32 @@ plt.tight_layout()
 plt.show()
 
 #Histogramas para visualisar a distribuição de Age, Fare, e Survived
-df[['Age', 'Fare', 'Survived']].hist(figsize = (10, 8), bins = 20)
+grafico3 = df[['Age', 'Fare', 'Survived']].hist(figsize=(10, 8), bins=20)
 plt.tight_layout()
 plt.show()
 
 print("\nVisualização dos gráficos")
 print("\n##################################################################################################################################")
-#3.5
+# 3.5 Exportação dos Resultados
+
+# Exporta o DataFrame atualizado para Excel
+output_excel = "titanic_resultados.xlsx"
+df.to_excel(output_excel, index=False)
+print(f"\nDataFrame exportado para '{output_excel}'.")
+
+# Guardar os gráficos
+plt.figure(figsize=(8, 6))
+grafico1.figure.savefig("grafico_sobrevivencia_classe_sexo.png")
+plt.close()
+
+plt.figure(figsize=(8, 6))
+grafico2.figure.savefig("grafico_correlacao_age_fare.png")
+plt.close()
+
+plt.figure(figsize=(10, 8))
+fig3 = plt.figure()
+df[['Age', 'Fare', 'Survived']].hist(figsize=(10, 8), bins=20)
+plt.tight_layout()
+fig3.savefig("grafico_histogramas_age_fare_survived.png")
+plt.close()
+
