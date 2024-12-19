@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Este projeto tem como objetivo explorar e analisar o conjunto de dados do *Titanic*, que contém informações detalhadas sobre os passageiros e os sobreviventes do famoso desastre marítimo de 1912. A análise será realizada com **Python 3**, utilizando as bibliotecas **Pandas** para manipulação de dados e **Matplotlib/Seaborn** para visualização. O projeto inclui atividades de leitura, limpeza, análise, visualização e exportação dos dados, com possibilidade de armazenamento numa base de dados.
+Este projeto tem como objetivo explorar e analisar o conjunto de dados do _Titanic_, que contém informações detalhadas sobre os passageiros e os sobreviventes do famoso desastre marítimo de 1912. A análise será realizada com **Python 3**, utilizando as bibliotecas **Pandas** para manipulação de dados e **Matplotlib/Seaborn** para visualização. O projeto inclui atividades de leitura, limpeza, análise, visualização e exportação dos dados, com possibilidade de armazenamento numa base de dados.
 
 ---
 
@@ -11,6 +11,7 @@ Este projeto tem como objetivo explorar e analisar o conjunto de dados do *Titan
 Para configurar o ambiente virtual necessário, siga os seguintes passos:
 
 ### Pré-requisitos:
+
 - Python 3.x instalado
 - Git instalado
 - Biblioteca **Streamlit** para criar a interface
@@ -18,12 +19,14 @@ Para configurar o ambiente virtual necessário, siga os seguintes passos:
 ### Passos para Preparar o Ambiente:
 
 1. **Clonar o repositório do GitHub**:
+
    ```bash
    git clone https://github.com/AlexandreRochaTPSIPL1223/Titanic.git
    cd Titanic
    ```
 
 2. **Criar e ativar um ambiente virtual**:
+
    ```bash
    python -m venv venv
    ```
@@ -32,12 +35,11 @@ Para configurar o ambiente virtual necessário, siga os seguintes passos:
    .\venv\Scripts\activate
    ```
 
-
 3. **Instalar as dependências necessárias**:
    ```bash
    pip install -r requirements_pg.txt
    ```
-    **Instalar as dependências necessárias para a página web**:
+   **Instalar as dependências necessárias para a página web**:
    ```bash
    pip install -r requirements_pg.txt
    ```
@@ -61,11 +63,12 @@ Para configurar o ambiente virtual necessário, siga os seguintes passos:
 ### Comandos para Executar o Script:
 
 1. **Executar o script principal da análise**:
+
    ```bash
    python main.py
    ```
 
-2. **Iniciar o Streamlit** (caso haja uma interface interativa desenvolvida):
+2. **Iniciar o Streamlit** :
    ```bash
    streamlit run app.py
    ```
